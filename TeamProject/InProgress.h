@@ -1,5 +1,5 @@
 #pragma once
-#include "../../../../../../Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.7.2/System.Data.dll"
+
 
 namespace TeamProject {
 
@@ -121,5 +121,7 @@ namespace TeamProject {
 		/* BuildingInfoForm^ info = gcnew BuildingInfoForm();
 		info->Show();
 		*/
-	}
+    }
 };
+
+} // namespace TeamProject

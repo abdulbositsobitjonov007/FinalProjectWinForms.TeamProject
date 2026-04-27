@@ -68,7 +68,7 @@ namespace TeamProject {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -140,9 +140,9 @@ namespace TeamProject {
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(110, 213);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(176, 16);
+			this->label3->Size = System::Drawing::Size(161, 16);
 			this->label3->TabIndex = 9;
-			this->label3->Text = L"Аддресс местоположения";
+			this->label3->Text = L"Адрес местоположения";
 			// 
 			// textBox2
 			// 
@@ -268,6 +268,7 @@ namespace TeamProject {
 			this->Controls->Add(this->button4);
 			this->Name = L"AddProjects";
 			this->Text = L"AddProjects";
+			this->Load += gcnew System::EventHandler(this, &AddProjects::AddProjects_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbModel))->EndInit();
 			this->ResumeLayout(false);
@@ -281,25 +282,12 @@ namespace TeamProject {
 		openFileDialog1->Title = "Выберите фотографию здания";
 
 		// Если пользователь выбрал файл и нажал "Открыть"
-		// Код для кнопки "Вставить фото здания"
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			// Сохраняем путь в переменную и выводим в первый PictureBox
 			this->pbPhoto->ImageLocation = openFileDialog1->FileName;
 			MessageBox::Show("Фотография успешно загружена!");
 		}
-
-			// --- ЧТО ДЕЛАТЬ ДАЛЬШЕ? Варианты: ---
-
-			// Простой вариант (для теста):
-			// Сказать пользователю, что файл выбран
-			MessageBox::Show("Фотография успешно загружена!");
-			// (Для теста можно сохранить путь filePath в переменную, чтобы потом показать его)
-
-			// Или более "красочный" вариант:
-			// Чтобы пользователь видел, что он загрузил, можно добавить на форму PictureBox (картинку)
-			// и загрузить туда выбранный файл:
-			// pictureBoxPhoto->ImageLocation = filePath; 
-		}
+	}
 	private: System::Void buttonModel_Click(System::Object^ sender, System::EventArgs^ e) {
 		openFileDialog1->Filter = "Изображения (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
 		openFileDialog1->Title = "Выберите макет здания";
@@ -309,44 +297,65 @@ namespace TeamProject {
 			MessageBox::Show("Макет успешно загружен!");
 		}
 	}
-private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	if (this->textBox1->Text->Trim() == "") {
-		MessageBox::Show("Пожалуйста, введите название проекта!");
-		return;
+	private: System::Void AddProjects_Load(System::Object^ sender, System::EventArgs^ e) {
+		// Инициализация значений при загрузке формы
+		if (this->comboBox1->Items->Count > 0) this->comboBox1->SelectedIndex = 0;
 	}
 
-	String^ selectedStatus = this->comboBox1->Text;
-
-	if (selectedStatus == "В процессе" || selectedStatus == "Еще не начатые") {
-		try {
-			// Открываем файл для записи (true значит "добавлять в конец")
-			StreamWriter^ sw = gcnew StreamWriter("database.txt", true);
-
-			// Записываем данные через разделитель '|'
-			// Формат: Название|Адрес|Статус|Путь_к_фото|Путь_к_макету
-			sw->WriteLine(
-				textBox1->Text + "|" +
-				textBox2->Text + "|" +
-				selectedStatus + "|" +
-				pbPhoto->ImageLocation + "|" +
-				pbModel->ImageLocation
-			);
-
-			sw->Close(); // Обязательно закрываем файл
-
-			MessageBox::Show("Проект '" + textBox1->Text + "' успешно сохранен в базу!");
-			this->Close();
+	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		// Проверка на пустое название
+		if (this->textBox1->Text->Trim() == "") {
+			MessageBox::Show("Пожалуйста, введите название проекта!");
+			return;
 		}
-		catch (Exception^ ex) {
-			MessageBox::Show("Ошибка при сохранении: " + ex->Message);
+
+		String^ selectedStatus = this->comboBox1->Text;
+
+		// Учитываем обе версии строки с "ё" и без
+		if (selectedStatus == "В процессе" || selectedStatus == "Ещё не начатые" || selectedStatus == "Еще не начатые") {
+			try {
+				StreamWriter^ sw = gcnew StreamWriter("database.txt", true);
+
+				// Используем richTextBox1 как поле "Список вещей"
+				String^ itemsList = this->richTextBox1->Text;
+
+				// Заменяем переносы строк на запятые и пробелы, чтобы одна запись = одна строка в файле
+				itemsList = itemsList->Replace("\r\n", ", ");
+				itemsList = itemsList->Replace("\n", ", ");
+				itemsList = itemsList->Replace("\r", ", ");
+				// Удаляем двойные пробелы и запятые
+				while (itemsList->Contains(", , ")) {
+					itemsList = itemsList->Replace(", , ", ", ");
+				}
+
+				// Проверяем пути к изображениям на null
+				String^ photoPath = (this->pbPhoto->ImageLocation == nullptr) ? "" : this->pbPhoto->ImageLocation;
+				String^ modelPath = (this->pbModel->ImageLocation == nullptr) ? "" : this->pbModel->ImageLocation;
+
+				// Формат: Название|Адрес|Список вещей|Статус|Путь_к_фото|Путь_к_макету
+				sw->WriteLine(
+					this->textBox1->Text + "|" +
+					this->textBox2->Text + "|" +
+					itemsList + "|" +
+					selectedStatus + "|" +
+					photoPath + "|" +
+					modelPath
+				);
+
+						sw->Close();
+
+						MessageBox::Show("Проект '" + this->textBox1->Text + "' успешно сохранен в базу!");
+						this->DialogResult = System::Windows::Forms::DialogResult::OK;
+						this->Close(); // Закрываем диалог
+					}
+			catch (Exception^ ex) {
+				MessageBox::Show("Ошибка при сохранении: " + ex->Message);
+			}
+		}
+		else {
+			MessageBox::Show("Пожалуйста, выберите статус проекта!");
 		}
 	}
-	else {
-		MessageBox::Show("Пожалуйста, выберите статус проекта!");
-	}
-}
-private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
-}
-};
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
+	};
 }
