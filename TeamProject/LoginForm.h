@@ -1,5 +1,7 @@
 #pragma once
 
+#include "MainMenuForm.h"
+
 namespace TeamProject {
 
 	using namespace System;
@@ -137,7 +139,7 @@ namespace TeamProject {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 19);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
-			this->ClientSize = System::Drawing::Size(1183, 646);
+			this->ClientSize = System::Drawing::Size(1183, 590);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox2);
@@ -163,6 +165,34 @@ private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	// Получаем данные из полей (используем существующие имена контролов)
+	String^ login = this->textBox1->Text->Trim();
+	String^ password = this->textBox2->Text->Trim();
+
+	// Проверка на пустые поля
+	if (login->Length == 0 || password->Length == 0) {
+		MessageBox::Show("Введите логин и пароль!", "Внимание",
+			MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		return;
+	}
+
+	// Проверка логина и пароля (пример)
+	if (login == "admin" && password == "1234") {
+		MessageBox::Show("Вход успешно выполнен!", "Приветствие",
+			MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		// Скрываем форму логина
+		this->Hide();
+
+		// Открываем главную форму: используем имя класса из подключённого заголовка
+		TeamProject::MainMenuForm^ mainForm = gcnew TeamProject::MainMenuForm();
+		mainForm->Show();
+	}
+	else {
+		MessageBox::Show("Неверный логин или пароль!", "Ошибка доступа",
+			MessageBoxButtons::OK, MessageBoxIcon::Error);
+		this->textBox2->Clear();
+	}
 }
 private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 }

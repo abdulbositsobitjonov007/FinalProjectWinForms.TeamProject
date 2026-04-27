@@ -1,6 +1,7 @@
 #pragma once
 
 namespace TeamProject {
+	ref class ProjectsSection;
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -46,6 +47,7 @@ namespace TeamProject {
 
 
 	private: System::Windows::Forms::Label^ label1;
+
 
 	private:
 		/// <summary>
@@ -112,7 +114,7 @@ namespace TeamProject {
 			this->btnExit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->btnExit->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnExit->Location = System::Drawing::Point(12, 214);
+			this->btnExit->Location = System::Drawing::Point(11, 477);
 			this->btnExit->Name = L"btnExit";
 			this->btnExit->Size = System::Drawing::Size(175, 41);
 			this->btnExit->TabIndex = 3;
@@ -125,9 +127,9 @@ namespace TeamProject {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Sitka Banner", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(3, 9);
+			this->label1->Location = System::Drawing::Point(12, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(142, 49);
+			this->label1->Size = System::Drawing::Size(135, 48);
 			this->label1->TabIndex = 4;
 			this->label1->Text = L"Главная";
 			// 
@@ -135,7 +137,7 @@ namespace TeamProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1188, 588);
+			this->ClientSize = System::Drawing::Size(1188, 530);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnExit);
 			this->Controls->Add(this->btnAboutCompany);
@@ -143,14 +145,29 @@ namespace TeamProject {
 			this->Controls->Add(this->btnProjects);
 			this->Name = L"MainMenuForm";
 			this->Text = L"MainMenuForm";
+			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &MainMenuForm::MainMenuForm_FormClosed);
+			this->Load += gcnew System::EventHandler(this, &MainMenuForm::MainMenuForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void btnExit_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Close(); // Закрывает текущее главное меню
-		// Если вы хотите вернуться на форму логина, она должна быть открыта или создана заново
-	}
+
+	   // 1. Переход в проекты
+private: System::Void btnProjects_Click(System::Object^ sender, System::EventArgs^ e);
+
+	   // 2. Логика выхода
+private: System::Void btnExit_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();
+}
+
+	   // 3. Полное закрытие программы при нажатии на "крестик"
+private: System::Void MainMenuForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
+	Application::Exit();
+}
+private: System::Void MainMenuForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	// Привязка обработчика кнопки "Проекты"
+	this->btnProjects->Click += gcnew System::EventHandler(this, &MainMenuForm::btnProjects_Click);
+}
 };
 }
