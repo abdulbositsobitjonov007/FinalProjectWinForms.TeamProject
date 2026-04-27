@@ -34,18 +34,36 @@ namespace TeamProject {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ btnProjects;
-	private: System::Windows::Forms::Button^ btnFinance;
-	private: System::Windows::Forms::Button^ btnAboutCompany;
-	private: System::Windows::Forms::Button^ btnExit;
-
+	private: System::Windows::Forms::GroupBox^ groupBox1;
 	protected:
-
-	protected:
-
-
-
+	private: System::Windows::Forms::Button^ button5;
+	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart3;
+	private: System::Windows::Forms::RadioButton^ radioButton1;
+	private: System::Windows::Forms::RadioButton^ radioButton2;
+	private: System::Windows::Forms::RadioButton^ radioButton3;
 	private: System::Windows::Forms::Label^ label1;
+
+
+
+
+
+	protected:
+
+
+
+
+
+	protected:
+
+	protected:
+
+
+
+
+
 
 	private:
 		/// <summary>
@@ -60,89 +78,150 @@ namespace TeamProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->btnProjects = (gcnew System::Windows::Forms::Button());
-			this->btnFinance = (gcnew System::Windows::Forms::Button());
-			this->btnAboutCompany = (gcnew System::Windows::Forms::Button());
-			this->btnExit = (gcnew System::Windows::Forms::Button());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->chart3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart3))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// btnProjects
+			// groupBox1
 			// 
-			this->btnProjects->BackColor = System::Drawing::SystemColors::MenuHighlight;
-			this->btnProjects->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->groupBox1->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->groupBox1->Controls->Add(this->button5);
+			this->groupBox1->Controls->Add(this->button4);
+			this->groupBox1->Controls->Add(this->button3);
+			this->groupBox1->Controls->Add(this->button2);
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->btnProjects->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnProjects->Location = System::Drawing::Point(12, 74);
-			this->btnProjects->Name = L"btnProjects";
-			this->btnProjects->Size = System::Drawing::Size(175, 39);
-			this->btnProjects->TabIndex = 0;
-			this->btnProjects->Text = L"Проекты";
-			this->btnProjects->UseVisualStyleBackColor = false;
+			this->groupBox1->Location = System::Drawing::Point(1, 0);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(238, 609);
+			this->groupBox1->TabIndex = 0;
+			this->groupBox1->TabStop = false;
 			// 
-			// btnFinance
+			// button5
 			// 
-			this->btnFinance->BackColor = System::Drawing::SystemColors::MenuHighlight;
-			this->btnFinance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->btnFinance->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnFinance->Location = System::Drawing::Point(12, 119);
-			this->btnFinance->Name = L"btnFinance";
-			this->btnFinance->Size = System::Drawing::Size(175, 41);
-			this->btnFinance->TabIndex = 1;
-			this->btnFinance->Text = L"Расходы и доходы";
-			this->btnFinance->UseVisualStyleBackColor = false;
+			this->button5->Location = System::Drawing::Point(11, 224);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(195, 65);
+			this->button5->TabIndex = 5;
+			this->button5->Text = L"о нашей компании ";
+			this->button5->UseVisualStyleBackColor = true;
 			// 
-			// btnAboutCompany
+			// button4
 			// 
-			this->btnAboutCompany->BackColor = System::Drawing::SystemColors::MenuHighlight;
-			this->btnAboutCompany->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->btnAboutCompany->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnAboutCompany->Location = System::Drawing::Point(12, 166);
-			this->btnAboutCompany->Name = L"btnAboutCompany";
-			this->btnAboutCompany->Size = System::Drawing::Size(175, 42);
-			this->btnAboutCompany->TabIndex = 2;
-			this->btnAboutCompany->Text = L"О компании";
-			this->btnAboutCompany->UseVisualStyleBackColor = false;
+			this->button4->Location = System::Drawing::Point(11, 508);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(195, 65);
+			this->button4->TabIndex = 4;
+			this->button4->Text = L"выход";
+			this->button4->UseVisualStyleBackColor = true;
 			// 
-			// btnExit
+			// button3
 			// 
-			this->btnExit->BackColor = System::Drawing::SystemColors::MenuHighlight;
-			this->btnExit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->btnExit->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnExit->Location = System::Drawing::Point(12, 214);
-			this->btnExit->Name = L"btnExit";
-			this->btnExit->Size = System::Drawing::Size(175, 41);
-			this->btnExit->TabIndex = 3;
-			this->btnExit->Text = L"Выйти";
-			this->btnExit->UseVisualStyleBackColor = false;
-			this->btnExit->Click += gcnew System::EventHandler(this, &MainMenuForm::btnExit_Click);
+			this->button3->Location = System::Drawing::Point(11, 126);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(195, 65);
+			this->button3->TabIndex = 3;
+			this->button3->Text = L"Сотртудники";
+			this->button3->UseVisualStyleBackColor = true;
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(11, 34);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(195, 65);
+			this->button2->TabIndex = 2;
+			this->button2->Text = L"Проекты";
+			this->button2->UseVisualStyleBackColor = true;
+			// 
+			// chart3
+			// 
+			chartArea1->Name = L"ChartArea1";
+			this->chart3->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chart3->Legends->Add(legend1);
+			this->chart3->Location = System::Drawing::Point(651, 34);
+			this->chart3->Name = L"chart3";
+			series1->ChartArea = L"ChartArea1";
+			series1->Legend = L"Legend1";
+			series1->Name = L"Series1";
+			this->chart3->Series->Add(series1);
+			this->chart3->Size = System::Drawing::Size(544, 468);
+			this->chart3->TabIndex = 3;
+			this->chart3->Text = L"chart3";
+			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Location = System::Drawing::Point(389, 126);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(103, 20);
+			this->radioButton1->TabIndex = 4;
+			this->radioButton1->TabStop = true;
+			this->radioButton1->Text = L"radioButton1";
+			this->radioButton1->UseVisualStyleBackColor = true;
+			// 
+			// radioButton2
+			// 
+			this->radioButton2->AutoSize = true;
+			this->radioButton2->Location = System::Drawing::Point(389, 181);
+			this->radioButton2->Name = L"radioButton2";
+			this->radioButton2->Size = System::Drawing::Size(103, 20);
+			this->radioButton2->TabIndex = 5;
+			this->radioButton2->TabStop = true;
+			this->radioButton2->Text = L"radioButton2";
+			this->radioButton2->UseVisualStyleBackColor = true;
+			// 
+			// radioButton3
+			// 
+			this->radioButton3->AutoSize = true;
+			this->radioButton3->Location = System::Drawing::Point(389, 230);
+			this->radioButton3->Name = L"radioButton3";
+			this->radioButton3->Size = System::Drawing::Size(103, 20);
+			this->radioButton3->TabIndex = 6;
+			this->radioButton3->TabStop = true;
+			this->radioButton3->Text = L"radioButton3";
+			this->radioButton3->UseVisualStyleBackColor = true;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Sitka Banner", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"ISOCPEUR", 25.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(3, 9);
+			this->label1->Location = System::Drawing::Point(245, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(142, 49);
-			this->label1->TabIndex = 4;
-			this->label1->Text = L"Главная";
+			this->label1->Size = System::Drawing::Size(245, 55);
+			this->label1->TabIndex = 7;
+			this->label1->Text = L"Аналитика ";
 			// 
 			// MainMenuForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1188, 588);
+			this->ClientSize = System::Drawing::Size(1198, 610);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->btnExit);
-			this->Controls->Add(this->btnAboutCompany);
-			this->Controls->Add(this->btnFinance);
-			this->Controls->Add(this->btnProjects);
+			this->Controls->Add(this->radioButton3);
+			this->Controls->Add(this->radioButton2);
+			this->Controls->Add(this->radioButton1);
+			this->Controls->Add(this->chart3);
+			this->Controls->Add(this->groupBox1);
 			this->Name = L"MainMenuForm";
 			this->Text = L"MainMenuForm";
+			this->Load += gcnew System::EventHandler(this, &MainMenuForm::MainMenuForm_Load);
+			this->groupBox1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart3))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -152,5 +231,10 @@ namespace TeamProject {
 		this->Close(); // Закрывает текущее главное меню
 		// Если вы хотите вернуться на форму логина, она должна быть открыта или создана заново
 	}
+private: System::Void MainMenuForm_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+
+private: System::Void chart3_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
