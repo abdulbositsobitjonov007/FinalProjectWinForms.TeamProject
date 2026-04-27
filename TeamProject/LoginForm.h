@@ -44,6 +44,7 @@ namespace TeamProject {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ label3;
 
+
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -68,10 +69,12 @@ namespace TeamProject {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(507, 191);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(495, 182);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(42, 19);
+			this->label1->Size = System::Drawing::Size(62, 25);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Логин";
 			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
@@ -79,10 +82,12 @@ namespace TeamProject {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(507, 254);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label2->Location = System::Drawing::Point(495, 254);
 			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(48, 19);
+			this->label2->Size = System::Drawing::Size(74, 25);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Пароль";
 			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
@@ -90,20 +95,26 @@ namespace TeamProject {
 			// textBox1
 			// 
 			this->textBox1->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->textBox1->Location = System::Drawing::Point(511, 214);
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->textBox1->Location = System::Drawing::Point(499, 214);
 			this->textBox1->Margin = System::Windows::Forms::Padding(2, 4, 2, 4);
+			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(164, 24);
+			this->textBox1->Size = System::Drawing::Size(191, 33);
 			this->textBox1->TabIndex = 2;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
 			// 
 			// textBox2
 			// 
 			this->textBox2->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->textBox2->Location = System::Drawing::Point(511, 277);
+			this->textBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->textBox2->Location = System::Drawing::Point(499, 286);
 			this->textBox2->Margin = System::Windows::Forms::Padding(2, 4, 2, 4);
+			this->textBox2->Multiline = true;
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(164, 24);
+			this->textBox2->Size = System::Drawing::Size(191, 31);
 			this->textBox2->TabIndex = 3;
 			this->textBox2->UseSystemPasswordChar = true;
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox2_TextChanged);
@@ -111,11 +122,13 @@ namespace TeamProject {
 			// button1
 			// 
 			this->button1->BackColor = System::Drawing::SystemColors::MenuHighlight;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
 			this->button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button1->Location = System::Drawing::Point(511, 328);
+			this->button1->Location = System::Drawing::Point(499, 348);
 			this->button1->Margin = System::Windows::Forms::Padding(2, 4, 2, 4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(164, 33);
+			this->button1->Size = System::Drawing::Size(191, 45);
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"Войти";
 			this->button1->UseVisualStyleBackColor = false;
@@ -124,12 +137,12 @@ namespace TeamProject {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Sitka Banner", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label3->Location = System::Drawing::Point(506, 139);
+			this->label3->Location = System::Drawing::Point(492, 122);
 			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(169, 29);
+			this->label3->Size = System::Drawing::Size(261, 38);
 			this->label3->TabIndex = 5;
 			this->label3->Text = L"ВХОД В СИСТЕМУ";
 			this->label3->Click += gcnew System::EventHandler(this, &MyForm::label3_Click);
@@ -196,5 +209,6 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+
 };
 }

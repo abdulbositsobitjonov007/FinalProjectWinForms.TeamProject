@@ -47,6 +47,9 @@ namespace TeamProject {
 
 
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::GroupBox^ groupBox1;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
+
 
 
 	private:
@@ -62,11 +65,18 @@ namespace TeamProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->btnProjects = (gcnew System::Windows::Forms::Button());
 			this->btnFinance = (gcnew System::Windows::Forms::Button());
 			this->btnAboutCompany = (gcnew System::Windows::Forms::Button());
 			this->btnExit = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// btnProjects
@@ -75,12 +85,13 @@ namespace TeamProject {
 			this->btnProjects->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->btnProjects->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnProjects->Location = System::Drawing::Point(12, 74);
+			this->btnProjects->Location = System::Drawing::Point(37, 88);
 			this->btnProjects->Name = L"btnProjects";
 			this->btnProjects->Size = System::Drawing::Size(175, 39);
 			this->btnProjects->TabIndex = 0;
 			this->btnProjects->Text = L"Проекты";
 			this->btnProjects->UseVisualStyleBackColor = false;
+			this->btnProjects->Click += gcnew System::EventHandler(this, &MainMenuForm::btnProjects_Click_1);
 			// 
 			// btnFinance
 			// 
@@ -88,12 +99,13 @@ namespace TeamProject {
 			this->btnFinance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->btnFinance->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnFinance->Location = System::Drawing::Point(12, 119);
+			this->btnFinance->Location = System::Drawing::Point(37, 133);
 			this->btnFinance->Name = L"btnFinance";
 			this->btnFinance->Size = System::Drawing::Size(175, 41);
 			this->btnFinance->TabIndex = 1;
 			this->btnFinance->Text = L"Расходы и доходы";
 			this->btnFinance->UseVisualStyleBackColor = false;
+			this->btnFinance->Click += gcnew System::EventHandler(this, &MainMenuForm::btnFinance_Click);
 			// 
 			// btnAboutCompany
 			// 
@@ -101,12 +113,13 @@ namespace TeamProject {
 			this->btnAboutCompany->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->btnAboutCompany->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnAboutCompany->Location = System::Drawing::Point(12, 166);
+			this->btnAboutCompany->Location = System::Drawing::Point(37, 180);
 			this->btnAboutCompany->Name = L"btnAboutCompany";
 			this->btnAboutCompany->Size = System::Drawing::Size(175, 42);
 			this->btnAboutCompany->TabIndex = 2;
 			this->btnAboutCompany->Text = L"О компании";
 			this->btnAboutCompany->UseVisualStyleBackColor = false;
+			this->btnAboutCompany->Click += gcnew System::EventHandler(this, &MainMenuForm::btnAboutCompany_Click);
 			// 
 			// btnExit
 			// 
@@ -114,7 +127,7 @@ namespace TeamProject {
 			this->btnExit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->btnExit->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnExit->Location = System::Drawing::Point(11, 477);
+			this->btnExit->Location = System::Drawing::Point(36, 491);
 			this->btnExit->Name = L"btnExit";
 			this->btnExit->Size = System::Drawing::Size(175, 41);
 			this->btnExit->TabIndex = 3;
@@ -127,28 +140,59 @@ namespace TeamProject {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Sitka Banner", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(12, 9);
+			this->label1->Location = System::Drawing::Point(37, 23);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(135, 48);
 			this->label1->TabIndex = 4;
 			this->label1->Text = L"Главная";
+			this->label1->Click += gcnew System::EventHandler(this, &MainMenuForm::label1_Click);
+			// 
+			// groupBox1
+			// 
+			this->groupBox1->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Controls->Add(this->btnProjects);
+			this->groupBox1->Controls->Add(this->btnExit);
+			this->groupBox1->Controls->Add(this->btnFinance);
+			this->groupBox1->Controls->Add(this->btnAboutCompany);
+			this->groupBox1->Location = System::Drawing::Point(-25, -14);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(237, 553);
+			this->groupBox1->TabIndex = 5;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"groupBox1";
+			// 
+			// chart1
+			// 
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chart1->Legends->Add(legend1);
+			this->chart1->Location = System::Drawing::Point(704, 91);
+			this->chart1->Name = L"chart1";
+			series1->ChartArea = L"ChartArea1";
+			series1->Legend = L"Legend1";
+			series1->Name = L"Series1";
+			this->chart1->Series->Add(series1);
+			this->chart1->Size = System::Drawing::Size(287, 237);
+			this->chart1->TabIndex = 6;
+			this->chart1->Text = L"chart1";
 			// 
 			// MainMenuForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1188, 530);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->btnExit);
-			this->Controls->Add(this->btnAboutCompany);
-			this->Controls->Add(this->btnFinance);
-			this->Controls->Add(this->btnProjects);
+			this->Controls->Add(this->chart1);
+			this->Controls->Add(this->groupBox1);
 			this->Name = L"MainMenuForm";
 			this->Text = L"MainMenuForm";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &MainMenuForm::MainMenuForm_FormClosed);
 			this->Load += gcnew System::EventHandler(this, &MainMenuForm::MainMenuForm_Load);
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -168,6 +212,14 @@ private: System::Void MainMenuForm_FormClosed(System::Object^ sender, System::Wi
 private: System::Void MainMenuForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	// Привязка обработчика кнопки "Проекты"
 	this->btnProjects->Click += gcnew System::EventHandler(this, &MainMenuForm::btnProjects_Click);
+}
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnAboutCompany_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnFinance_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnProjects_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
