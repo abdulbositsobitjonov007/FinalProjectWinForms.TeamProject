@@ -62,11 +62,8 @@ namespace TeamProject {
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
-			// 
-			// button1
-			// 
 			this->button1->BackColor = System::Drawing::Color::Cyan;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button1->Location = System::Drawing::Point(76, 73);
@@ -76,9 +73,6 @@ namespace TeamProject {
 			this->button1->Text = L"Добавить проект";
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &ProjectsSection::button1_Click);
-			// 
-			// button4
-			// 
 			this->button4->Location = System::Drawing::Point(12, 12);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(97, 35);
@@ -86,11 +80,8 @@ namespace TeamProject {
 			this->button4->Text = L"< Назад";
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &ProjectsSection::button4_Click);
-			// 
-			// button2
-			// 
 			this->button2->BackColor = System::Drawing::Color::Lime;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button2->Location = System::Drawing::Point(523, 73);
@@ -100,9 +91,6 @@ namespace TeamProject {
 			this->button2->Text = L"Все проекты";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &ProjectsSection::button2_Click);
-			// 
-			// ProjectsSection
-			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1201, 586);

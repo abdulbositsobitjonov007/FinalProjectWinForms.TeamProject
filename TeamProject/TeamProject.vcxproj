@@ -143,9 +143,7 @@
     <ClInclude Include="LoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="MainMenuForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
+    <ClInclude Include="MainMenuForm.h" />
     <ClInclude Include="ProjectsSection.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -165,9 +163,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForm.resx">
-      <DependentUpon>MainMenuForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectsSection.resx">
       <DependentUpon>ProjectsSection.h</DependentUpon>
