@@ -122,7 +122,9 @@
     <ClCompile Include="AddProjects.cpp" />
     <ClCompile Include="AllProjects.cpp" />
     <ClCompile Include="BuildingUniversalList.cpp" />
+    <ClCompile Include="Finance.cpp" />
     <ClCompile Include="InProgress.cpp" />
+    <ClCompile Include="ListofEmployee.cpp" />
     <ClCompile Include="MainMenuForm.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="ProjectsSection.cpp" />
@@ -144,6 +146,12 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MainMenuForm.h" />
+    <ClInclude Include="Finance.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ListofEmployee.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ProjectsSection.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -158,8 +166,14 @@
     <EmbeddedResource Include="BuildingUniversalList.resx">
       <DependentUpon>BuildingUniversalList.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Finance.resx">
+      <DependentUpon>Finance.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InProgress.resx">
       <DependentUpon>InProgress.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListofEmployee.resx">
+      <DependentUpon>ListofEmployee.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>

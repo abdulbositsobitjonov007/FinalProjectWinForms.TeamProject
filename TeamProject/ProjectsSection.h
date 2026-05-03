@@ -1,10 +1,11 @@
 #pragma once
-
 #include "AddProjects.h"
 #include "AllProjects.h"
-
+#include "ListofEmployee.h"
 namespace TeamProject {
 	ref class MainMenuForm;
+	ref class Finance;
+	ref class ProjectsSection;
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -112,17 +113,16 @@ namespace TeamProject {
 	}
 
 		   // Кнопка "Все проекты" (Зеленая)
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	// Создаем и открываем окно со списком всех проектов
-	AllProjects^ allProj = gcnew AllProjects();
-	allProj->Show();
-	this->Hide(); // Скрываем текущее окно
-}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		// Создаем и открываем окно со списком всех проектов
+		AllProjects^ allProj = gcnew AllProjects();
+		allProj->Show(this);
+		this->Hide(); // Скрываем текущее окно
+	}
 
 		   // Кнопка "< Назад"
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void ProjectsSection_Load(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void ProjectsSection_Load(System::Object^ sender, System::EventArgs^ e);
 };
 }
