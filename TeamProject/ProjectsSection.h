@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-
-=======
 #pragma once
->>>>>>> f454eca1bdb450ce768126efc96b79a9aa0fc008
+
 #include "AddProjects.h"
 #include "AllProjects.h"
 #include "ListofEmployee.h"

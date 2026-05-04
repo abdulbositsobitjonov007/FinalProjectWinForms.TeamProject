@@ -145,13 +145,13 @@
     <ClInclude Include="LoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="MainMenuForm.h" />
     <ClInclude Include="Finance.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ListofEmployee.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MainMenuForm.h" />
     <ClInclude Include="ProjectsSection.h">
       <FileType>CppForm</FileType>
     </ClInclude>

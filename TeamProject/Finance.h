@@ -120,9 +120,6 @@ namespace TeamProject {
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// groupBox1
-			// 
 			this->groupBox1->Controls->Add(this->radioProfit);
 			this->groupBox1->Controls->Add(this->radioExpense);
 			this->groupBox1->Controls->Add(this->radioIncome);
@@ -131,9 +128,6 @@ namespace TeamProject {
 			this->groupBox1->Size = System::Drawing::Size(239, 203);
 			this->groupBox1->TabIndex = 0;
 			this->groupBox1->TabStop = false;
-			// 
-			// radioProfit
-			// 
 			this->radioProfit->AutoSize = true;
 			this->radioProfit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14));
 			this->radioProfit->Location = System::Drawing::Point(41, 111);
@@ -144,9 +138,6 @@ namespace TeamProject {
 			this->radioProfit->Text = L"прибыль ";
 			this->radioProfit->UseVisualStyleBackColor = true;
 			this->radioProfit->CheckedChanged += gcnew System::EventHandler(this, &MyForm1::radioButton3_CheckedChanged);
-			// 
-			// radioExpense
-			// 
 			this->radioExpense->AutoSize = true;
 			this->radioExpense->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14));
 			this->radioExpense->Location = System::Drawing::Point(41, 70);
@@ -157,9 +148,6 @@ namespace TeamProject {
 			this->radioExpense->Text = L"Расход";
 			this->radioExpense->UseVisualStyleBackColor = true;
 			this->radioExpense->CheckedChanged += gcnew System::EventHandler(this, &MyForm1::radioButton2_CheckedChanged);
-			// 
-			// radioIncome
-			// 
 			this->radioIncome->AutoSize = true;
 			this->radioIncome->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14));
 			this->radioIncome->Location = System::Drawing::Point(41, 35);
@@ -170,9 +158,6 @@ namespace TeamProject {
 			this->radioIncome->Text = L"Доход";
 			this->radioIncome->UseVisualStyleBackColor = true;
 			this->radioIncome->CheckedChanged += gcnew System::EventHandler(this, &MyForm1::radioIncome_CheckedChanged);
-			// 
-			// chart1
-			// 
 			this->chart1->BackColor = System::Drawing::Color::Transparent;
 			this->chart1->BorderlineColor = System::Drawing::Color::Transparent;
 			chartArea2->Name = L"ChartArea1";
@@ -188,9 +173,6 @@ namespace TeamProject {
 			this->chart1->Size = System::Drawing::Size(861, 631);
 			this->chart1->TabIndex = 1;
 			this->chart1->Click += gcnew System::EventHandler(this, &MyForm1::chart1_Click);
-			// 
-			// button4
-			// 
 			this->button4->Location = System::Drawing::Point(12, 12);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(97, 35);
@@ -198,9 +180,6 @@ namespace TeamProject {
 			this->button4->Text = L"< Назад";
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &MyForm1::button4_Click);
-			// 
-			// MyForm1
-			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(988, 650);
