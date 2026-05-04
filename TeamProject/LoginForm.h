@@ -209,6 +209,10 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+<<<<<<< HEAD
 
 };
+=======
+	};
+>>>>>>> f454eca1bdb450ce768126efc96b79a9aa0fc008
 }

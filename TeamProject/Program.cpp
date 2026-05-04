@@ -8,7 +8,7 @@ int main(array<String^>^ args)
 {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
-    TeamProject::MyForm form;
-    Application::Run(%form);
+    TeamProject::MyForm^ form = gcnew TeamProject::MyForm();
+    Application::Run(form);
     return 0;
 }

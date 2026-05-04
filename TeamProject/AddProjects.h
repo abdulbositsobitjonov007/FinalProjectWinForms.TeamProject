@@ -1,4 +1,4 @@
-#pragma once
+	#pragma once
 
 namespace TeamProject {
 
@@ -356,6 +356,9 @@ namespace TeamProject {
 			MessageBox::Show("Пожалуйста, выберите статус проекта!");
 		}
 	}
-	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->DialogResult = System::Windows::Forms::DialogResult::Cancel;
+		this->Close();
+	}
 	};
 }
